@@ -1,0 +1,10 @@
+# Do not edit, rename or delete this file!
+
+language: csharp
+solution: comp110-worksheet-7.sln
+install:
+  - nuget restore comp110-worksheet-7.sln
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release comp110-worksheet-7.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./comp110-worksheet-7-tests/bin/Release/comp110-worksheet-7-tests.dll
